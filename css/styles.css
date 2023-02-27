@@ -110,7 +110,7 @@ ul li .active {
     justify-content: space-around;
     align-items: center;
     margin-top: 0.25rem;
-    margin-bottom:50px;
+    margin-bottom: 50px;
 }
 
 .items-cards-past {
@@ -122,6 +122,7 @@ ul li .active {
     margin-top: 0.25rem;
     margin-bottom: 65px;
 }
+
 .price {
     margin-right: 0.5rem;
 }
@@ -217,8 +218,9 @@ ul li .active {
     max-width: 800px;
     max-height: 1000px;
     margin: 5rem;
-    
+
 }
+
 .footer-page-detail {
     width: auto;
     height: 4.8rem;
@@ -251,30 +253,51 @@ ul li .active {
         display: flex;
         flex-direction: column;
     }
+
     .main-menu li {
         margin-bottom: 1rem;
     }
-    .card{
+
+    .card {
         margin-bottom: 1rem;
     }
-    .checkbox-items{
+
+    .checkbox-items {
         display: flex;
         flex-direction: column;
     }
 }
-@media (min-width:450px) and (max-width:593px){
+
+@media (min-width:450px) and (max-width:593px) {
     .main-menu {
         display: flex;
         flex-direction: column;
     }
+
     .main-menu li {
         margin-bottom: 1rem;
     }
-    .card{
+
+    .card {
         margin-bottom: 1rem;
     }
-    .checkbox-items{
+
+    .checkbox-items {
         display: flex;
         flex-direction: column;
     }
+}
+
+.btn-card {
+    background-color: #D90368dd;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 10px black;
+    padding: 0.25rem 0.25rem;
+    margin-top: 0.25rem;
+    text-decoration: none;
+}
+.btn-card:hover {
+    color: white;
 }
