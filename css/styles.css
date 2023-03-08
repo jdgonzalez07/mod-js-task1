@@ -93,38 +93,43 @@ ul li .active {
     border: 1px solid #aaa;
 }
 
-.items-cards-home {
+#items-cards-home {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     margin-top: 0.25rem;
-    margin-bottom: 69px;
+    /* padding: 2rem; */
+    margin-bottom: 83px;
 }
 
-.items-cards-upcoming {
+#items-cards-upcoming {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     margin-top: 0.25rem;
-    margin-bottom: 50px;
+    margin-bottom: 64px;
 }
 
-.items-cards-past {
+#items-cards-past {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     margin-top: 0.25rem;
-    margin-bottom: 65px;
+    margin-bottom: 79px;
 }
 
 .price {
     margin-right: 0.5rem;
+}
+
+.card {
+    margin: 1rem;
 }
 
 
@@ -136,7 +141,7 @@ ul li .active {
     display: flex;
     align-items: center;
     justify-content: start;
-    /* margin-top: 65px; */
+    /* margin-top: 79px; */
 }
 
 .footer-page ul li {
