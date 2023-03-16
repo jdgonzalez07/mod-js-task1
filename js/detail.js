@@ -213,5 +213,3 @@ html += `
       </div>
 `
 container.innerHTML = html;
-
-{/* <p>Assistance:<span> ${profile.assistance}</span></p> */}
