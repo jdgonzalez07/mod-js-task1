@@ -63,19 +63,21 @@ ul li .active {
     justify-content: center;
 }
 
-.checkbox-items {
+#checkbox-items {
     margin: 2rem;
-    display: inline-block;
-    justify-content: start;
+    /* display: inline-block; */
+    justify-content: center;
     align-items: center;
 }
 
-.checkbox-items label {
-    margin-left: 0.50rem;
+#checkbox-items label {
+    display: flex;
+    margin-left: 1.8rem;
 }
 
-.checkbox-items input {
-    margin-left: 0.50rem;
+#checkbox-items input {
+    display: flex;
+    margin-left: 0.5rem;
 }
 
 .btn-nav {
@@ -87,7 +89,7 @@ ul li .active {
     border: none
 }
 
-#search-input {
+#id_search {
     outline: none;
     box-shadow: none;
     border: 1px solid #aaa;
@@ -130,6 +132,45 @@ ul li .active {
 
 .card {
     margin: 1rem;
+}
+
+.tarjetaErrorHome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#D90368dd;
+    color: #fff;
+    padding: 4rem;
+    border: 1px solid #828AA2;
+    border-radius: 1rem;
+    margin-bottom: 20px;
+    
+}
+
+.tarjetaErrorUpcoming {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#D90368dd;
+    color: #fff;
+    padding: 4rem;
+    border: 1px solid #828AA2;
+    border-radius: 1rem;
+    margin-bottom: 39px;
+    
+}
+
+.tarjetaErrorPast {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#D90368dd;
+    color: #fff;
+    padding: 4rem;
+    border: 1px solid #828AA2;
+    border-radius: 1rem;
+    margin-bottom: 24px;
+    
 }
 
 
@@ -218,11 +259,11 @@ ul li .active {
 }
 
 /* ESTILOS DE DETAILS */
-.detail {
-    background-color: #828AA2;
-    max-width: 800px;
-    max-height: 1000px;
+.detail-container {
+    background-color: #fff;
     margin: 5rem;
+    box-shadow: 5px 5px 10px black;
+    
 
 }
 
@@ -234,7 +275,8 @@ ul li .active {
     display: flex;
     align-items: center;
     justify-content: start;
-    margin-top: 9.2rem;
+    margin-top: 277px;
+    
 }
 
 .footer-page-detail ul li {
@@ -267,10 +309,6 @@ ul li .active {
         margin-bottom: 1rem;
     }
 
-    .checkbox-items {
-        display: flex;
-        flex-direction: column;
-    }
 }
 
 @media (min-width:450px) and (max-width:593px) {
@@ -287,10 +325,7 @@ ul li .active {
         margin-bottom: 1rem;
     }
 
-    .checkbox-items {
-        display: flex;
-        flex-direction: column;
-    }
+
 }
 
 .btn-card {
