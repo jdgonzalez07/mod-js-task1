@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./img/Logo_Amazing_Events.ico">
+    <link rel="icon" href="./img/Logo_Amazing_Events.ico" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>Contact</title>
+    <title>Stats</title>
   </head>
   <body>
     <header>
@@ -45,7 +45,7 @@
       </div>
     </header>
     <main>
-      <table class="table table-stats table-bordered">
+      <table id="table" class="table table-stats table-bordered">
         <thead>
           <tr>
             <th class="theading" colspan="4">Events statistics</th>
@@ -53,73 +53,84 @@
         </thead>
         <tbody>
           <tr>
-            <td>Events with the highest percentage of attendance</td>
-            <td>Events with the lowest percentage of attendance</td>
-            <td colspan="2">Event with larger capacity</td>
+            <td>
+              <strong>Events with the highest percentage of attendance</strong>
+            </td>
+            <td>
+              <strong> Events with the lowest percentage of attendance</strong>
+            </td>
+            <td colspan="2"><strong>Event with larger capacity</strong></td>
           </tr>
-          <tr>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
+          <tr id="firstTable">
+            <!-- Aqui esta la primera tabla -->
           </tr>
+          
           <tr>
             <th class="theading" colspan="3">
               Upcoming events statistics by category
             </th>
           </tr>
           <tr>
-            <td>Categories</td>
-            <td>Revenues</td>
-            <td>percentage of attendance</td>
+            <td><strong>Categories</strong></td>
+            <td><strong>Revenues</strong></td>
+            <td><strong>percentage of attendance</strong></td>
           </tr>
+          <tbody id="secondTable" >
+            <tr>
+              <!-- <td>ddd</td>
+             <td>ddd</td>
+             <td colspan="1">ddd</td> -->
+          </tr>
+          </tbody>
+          
+        
+        <tbody >
+          <!-- <tr >
+            <td colspan="1"></td>
+            <td colspan="1"></td>
+            <td colspan="1"></td>
+          </tr> -->
+        </tbody>
           <tr>
+            <!-- <td colspan="1"></td>
             <td colspan="1"></td>
             <td colspan="1"></td>
-            <td colspan="1"></td>
-          </tr>
-          <tr>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
-          </tr>
-          <tr>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
-          </tr>
+          </tr> -->
           <tr>
             <th colspan="4">Past events statistic by category</th>
           </tr>
+          <tr >
+            <td><strong>Categories</strong></td>
+            <td><strong>Revenues</strong></td>
+            <td><strong>percentage of attendance</strong></td>
+          </tr>
+          <tbody id="thirdTable" >
+          <!-- <tr>
+            <td colspan="1"></td>
+            <td colspan="1"></td>
+            <td colspan="1"></td>
+          </tr> -->
+          </tbody>
           <tr>
-            <td>Categories</td>
-            <td>Revenues</td>
-            <td>percentage of attendance</td>
+            <!-- <td colspan="1"></td>
+            <td colspan="1"></td>
+            <td colspan="1"></td> -->
           </tr>
           <tr>
+            <!-- <td colspan="1"></td>
             <td colspan="1"></td>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
+            <td colspan="1"></td> -->
           </tr>
           <tr>
+            <!-- <td colspan="1"></td>
             <td colspan="1"></td>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
+            <td colspan="1"></td> -->
           </tr>
-          <tr>
+          <!-- <tr>
             <td colspan="1"></td>
             <td colspan="1"></td>
             <td colspan="1"></td>
-          </tr>
-          <tr>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
-          </tr>
-          <tr>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
-            <td colspan="1"></td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </main>
@@ -141,5 +152,6 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/stats.js"></script>
   </body>
 </html>
