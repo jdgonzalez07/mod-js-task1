@@ -5,23 +5,25 @@ const API_URL_EVENTS = " https://mindhub-xj03.onrender.com/api/amazing";
 let events = [];
 let upcomingEvents = [];
 
-let pastEvents = [];
-let fechaActual;
 
+let fechaActual;
+let pastEvents = [];
 async function getEvents() {
   try {
     let response = await fetch(API_URL_EVENTS);
     let dataApi = await response.json();
     events = dataApi.events;
     fechaActual = dataApi.currentDate;
-
+    
+    console.log(pastEvents);
     ///// Llamada de funciones
     printFirstTable(events);
-
-    categoriesUpcoming(upcomingEvents);
-    categoriesPast(pastEvents);
+    /* categoriesUpcoming(upcomingEvents); */
+    secondTable(categoriesPast(pastEvents));
+    thirdTable(categoriesUpcoming(upcomingEvents))
 
     ///// Filtrando eventos past y upcoming
+    
     for (let i = 0; i < events.length; i++) {
       if (events[i].date > fechaActual) {
         upcomingEvents.push(events[i]);
@@ -38,7 +40,7 @@ async function getEvents() {
 }
 
 getEvents();
-
+console.log(pastEvents);
 // Constantes capturadas y variables
 const contenedorPast1 = document.getElementById("firstTable");
 const contenedorUpcoming = document.getElementById("secondTable");
@@ -104,50 +106,102 @@ async function categoriesUpcoming(upcomingEvents) {
 
   let categoriasUnicas = Array.from(new Set(categorias));
 
-  const resultadoPrecio = iterador.map((ite) => ite.price * ite.estimate);
-  /* console.log(resultadoPrecio); */
- 
-  for(i = 0; i < resultadoPrecio.length; i ++){
-   /* console.log(resultadoPrecio[i]); */
-  }
+  let nuevasCategorias = categoriasUnicas.map(element => iterador.filter(ite => ite.category == element))
 
-  for (let i = 0; i < categoriasUnicas.length; i++) {
-    contenedorUpcoming.innerHTML += `
-     <td colspan="1">${categoriasUnicas[i]}</td>
-     <td colspan="1">${resultadoPrecio[i]}</td>
-    `;
-  }
+  console.log(nuevasCategorias);
+
+  let newRevenues = nuevasCategorias.map(element => {
+    let resultados = element.reduce((acumulador, eventos) =>{
+      /* console.log(eventos); */
+      console.log(acumulador);
+      acumulador.category = eventos.category
+      acumulador.revenues += eventos.price * (eventos.assistance || eventos.estimate) 
+      acumulador.porcentaje += ((eventos.assistance || eventos.estimate) * 100) / eventos.capacity
+      return acumulador;
+    }, {revenues:0,porcentaje:0,category:""})
+
+    resultados.porcentaje = resultados.porcentaje / element.length
+    console.log(resultados);
+    return resultados;
+
+  })
+return newRevenues;
 }
 
 
 // Tercera tabla (categorías)
 async function categoriesPast(pastEvents) {
   let iterador = await pastEvents;
+  console.log(iterador);
   let categorias = [];
   iterador.forEach((cate) => {
     categorias.push(cate.category);
   });
 
-  let categoriasUnicas = Array.from(new Set(categorias));/* console.log(categoriasUnicas); */
+/*   console.log(categorias); */
+  let categoriasUnicas = Array.from(new Set(categorias))
 
-  /* let porcentaje = iterador.map((ite) => 
-    ite.assistance + ite.capacity);
-    console.log(porcentaje); */
+  let nuevasCategorias = categoriasUnicas.map(element => iterador.filter(ite => ite.category == element))
 
-
- const resultadoPrecio = iterador.map((ite) => ite.price * ite.assistance);
- /* console.log(resultadoPrecio); */
-
- for(i = 0; i < resultadoPrecio.length; i ++){
-  /* console.log(resultadoPrecio[i]); */
- }
+  console.log(nuevasCategorias);
 
 
+  let newRevenues = nuevasCategorias.map(element => {
+    let resultados = element.reduce((acumulador, eventos) =>{
+      /* console.log(eventos); */
+      console.log(acumulador);
+      acumulador.category = eventos.category
+      acumulador.revenues += eventos.price * (eventos.assistance || eventos.estimate) 
+      acumulador.porcentaje += ((eventos.assistance || eventos.estimate) * 100) / eventos.capacity
+      return acumulador;
+    }, {revenues:0,porcentaje:0,category:""})
 
-  for (let i = 0; i < categoriasUnicas.length; i++) {
-    contenedorPast2.innerHTML += `
-    <td colspan="1">${categoriasUnicas[i]}</td>
-    <td colspan="1">${resultadoPrecio[i]}</td>
-    `;
-  }
+    resultados.porcentaje = resultados.porcentaje / element.length
+    console.log(resultados);
+    return resultados;
+
+  })
+return newRevenues;
+
+ 
+}
+
+async function secondTable(pastEvents) {
+  console.log(pastEvents);
+  let iterador = await pastEvents;
+  let html = iterador.map(eventos => {
+    console.log(eventos.porcentaje)
+    
+    return  `
+    <tr>
+    <td colspan="1">${eventos.category}</td>
+    <td colspan="1">$${eventos.revenues}</td>
+    <td colspan="1">${eventos.porcentaje.toFixed(2)}%</td>
+    
+    </tr>
+    `
+  })
+
+  contenedorPast2.innerHTML = html.join("");
+ 
+}
+
+async function thirdTable(upcomingEvents) {
+  console.log(pastEvents);
+  let iterador = await upcomingEvents;
+  let html = iterador.map(eventos => {
+    console.log(eventos.porcentaje)
+    
+    return  `
+    <tr>
+    <td colspan="1">${eventos.category}</td>
+    <td colspan="1">$${eventos.revenues}</td>
+    <td colspan="1">${eventos.porcentaje.toFixed(2)}%</td>
+    
+    </tr>
+    `
+  })
+
+  contenedorUpcoming.innerHTML = html.join("");
+ 
 }
